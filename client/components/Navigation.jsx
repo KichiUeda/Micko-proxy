@@ -1,13 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import styled from 'styled-components';
-import { render } from 'react-dom/cjs/react-dom.development';
 
 const NavBox = styled.div`
   background-color: rgb(73, 79, 92);
   justify-content: center;
 `;
 const Nav = styled.div`
+  border-top: solid 1px;
   text-align: center;
   padding: 10px;
   color: grey;
@@ -19,11 +18,23 @@ const Menus = styled.div`
   font-family: roboto;
   font-size: 14px;
   font-weight: bold;
+  color: #c9d0de;
   margin: 20px;
   &:hover {
     color: white;
   }
 `;
+
+const SubMenu = styled.div`
+  font-family: roboto;
+  font-size: 15px;
+  color: #c9d0de;
+  margin-bottom: 8px;
+  padding-left: 50px;
+  &:hover {
+    color: white;
+  }
+`
 
 const Humble = styled.div`
   img {
@@ -32,6 +43,7 @@ const Humble = styled.div`
   }
 `
 const SearchBar = styled.div`
+margin-left: 100px;
   input {
     font-style: inherit;
     background-color: grey;
@@ -45,6 +57,13 @@ const Login = styled.a`
   &:hover {
     color: white;
   }
+`
+const Checkout = styled.div`
+  font-family: roboto;
+  font-size: 15px;
+  color: #c9d0de;
+  display: flex;
+  align-items: flex-end;
 `
 
 export default class Navigation extends React.Component {
@@ -66,6 +85,27 @@ export default class Navigation extends React.Component {
           </SearchBar>
           <Login><Menus>LOG IN</Menus></Login>
           <Login><Menus>SIGN UP</Menus></Login>
+        </Nav>
+        <Nav>
+          <SubMenu>ON SALE</SubMenu>
+          <SubMenu>NEW RELEASES</SubMenu>
+          <SubMenu>BESTSELLING</SubMenu>
+          <SubMenu>BROWSE</SubMenu>
+          <SubMenu>CHARITY</SubMenu>
+          <Checkout>
+            <SubMenu>
+              <i class="fa fa-credit-card"></i>
+              $0.00
+            </SubMenu>
+            <SubMenu>
+              <span class="fa fa-star"></span>
+              0
+            </SubMenu>
+            <SubMenu>
+              <i class="fa fa-shopping-cart"></i>
+              0
+            </SubMenu>
+          </Checkout>
         </Nav>
       </NavBox>
     );
