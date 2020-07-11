@@ -12,6 +12,9 @@ class App extends React.Component {
     return <div>
       <Navigation />
       <div id='images'></div>
+      <div id="Overview"></div>
+      <div id="desc"></div>
+      <div id="Traits"></div>
       <Footer />
     </div>
   }
