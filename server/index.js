@@ -1,5 +1,8 @@
-const express = require('express');
 const path = require('path');
+require('dotenv').config({
+  path: path.resolve(__dirname, '../.env');
+});
+const express = require('express');
 
 const app = express();
 
@@ -12,7 +15,7 @@ app.get('/:productId', (req, res) => {
   res.sendFile(package);
 })
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT_PROXY;
 
 app.listen(port, () => {
   console.log(`Server Live listening on port ${port}`);
