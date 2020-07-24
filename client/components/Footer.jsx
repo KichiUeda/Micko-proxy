@@ -2,120 +2,141 @@ import React from 'react';
 import styled from 'styled-components';
 
 const FooterBox = styled.div`
-  display: flex;
+  display: block;
   background-color: #2f333d;
 `
 const ColumnBox = styled.div`
-  margin-left: 50px;
-  margin-bottom: 50px;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(8, minmax(10px,auto));
+  grid-template-rows: repeat(6, minmax(10px,auto));
   color: #c4c7cf;
+  font-size: 14px;
 `
-
+const Wrapper = styled.div`
+  margin-left: 45px;
+  margin-right: 45px;
+  padding-left: 100px;
+  padding-right: 100px;
+  text-size-adjust: 100%;
+`
 const Humble = styled.div`
+  display: block;
+  grid-column-end: 3;
+  grid-column-start: 1;
+  grid-row-end: 2;
+  grid-row-start: 1;
   margin-top: 25px;
   img {
     width: 99px;
     height: 29px;
   }
 `
-const FooterEntry = styled.div`
-  margin-top: 25px;
-  font-size: 12px;
-  &:hover {
-    color: white;
+const Referral = styled.div`
+  display: block;
+  grid-column-end: 3;
+  grid-column-start: 1;
+  grid-row-end: 7;
+  grid-row-start: 2;
+  margin-top: 10px;
+  .referral-link {
+    color: #ef9841;
   }
 `
-const Invite = styled.p`
-  color: #ef9841;
-  font-weight: bold;
-  font-size: 12px;
-`
-const SubTitle = styled.h2`
-  color: white;
-  font-size: 12px;
-  margin-top: 25px;
-`
-const Language = styled.div`
-  color:white;
-  font-size: 12px;
-  margin-top: 25px;
-`
-const Row = styled.div`
+const FooterNav = styled.section`
   display: flex;
-  flex-direction: row;
   color: #c4c7cf;
+  flex-direction: flex;
+  grid-column-end: 7;
+  grid-column-start: 3;
+  grid-row-end: 7;
+  grid-row-start: 1;
 `
-const ArrowDown = styled.span`
-  border-left: 3px solid transparent;
-  border-right: 3px solid transparent;
-  border-top: 3px solid white;
-  margin-top: 2px;
-`
-const Social = styled.div`
-
-  .fa {
-    padding: 20px;
-    font-size: 14px;
-    font-color: white;
-    width: 50px;
-    text-align: center;
-    text-decoration: none;
-    background: #3b3e48;
+const FooterAbout = styled.div`
+  display:block;
+  h2 {
+    color: #ecf1fe;
   };
-  .fa:hover {
-    opacity: 0.7;
+  .about-links {
+    display: flex;
+    flex-wrap: wrap;
+    li {
+      display: list-item;
+      flex-basis: 44%;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      text-align: left;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding-bottom: 10px;
+      padding-right: 25px;
+      padding-top: 20px;
+    }
+  };
+`
+const TrendingGames = styled.div`
+  display: block;
+  h2 {
+    color: #ecf1fe;
+  };
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    li {
+      display: list-item;
+      flex-basis: 43%;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      padding-bottom: 10px;
+      padding-right: 20px;
+      padding-top: 25px;
+      text-align: left;
+      text-overflow ellipsis;
+      white-space: nowrap;
+    }
   }
 `
+
 export default class Footer extends React.Component {
   render() {
     return (
       <FooterBox>
-        <ColumnBox>
-          <Humble>
-            <img src="https://humblebundle-a.akamaihd.net/static/hashed/4814f84495cd679571cb94896978da3825562075.svg"></img>
-          </Humble>
-          <FooterEntry>Limited time offer—Get $8 Wallet Credit to spend on your next store purchase!</FooterEntry>
-          <Invite>INVITE A FRIEND</Invite>
-        </ColumnBox>
-        <ColumnBox>
-          <SubTitle>About</SubTitle>
-          <FooterEntry>Blog</FooterEntry>
-          <FooterEntry>Support</FooterEntry>
-          <FooterEntry>Order Resender</FooterEntry>
-          <FooterEntry>Blog</FooterEntry>
-          <FooterEntry>Developer</FooterEntry>
-        </ColumnBox>
-        <ColumnBox>
-          <SubTitle>Trending Games</SubTitle>
-          <Row>
-            <ColumnBox>
-              <FooterEntry>Game</FooterEntry>
-              <FooterEntry>Game</FooterEntry>
-              <FooterEntry>Game</FooterEntry>
-              <FooterEntry>Game</FooterEntry>
-              <FooterEntry>Game</FooterEntry>
-            </ColumnBox>
-            <ColumnBox>
-              <FooterEntry>Game</FooterEntry>
-              <FooterEntry>Game</FooterEntry>
-              <FooterEntry>Game</FooterEntry>
-              <FooterEntry>Game</FooterEntry>
-            </ColumnBox>
-          </Row>
-        </ColumnBox>
-        <ColumnBox>
-          <Language>
-            <i class="fa fa-globe"></i>
-            Language: English <ArrowDown></ArrowDown>
-          </Language>
-          <Social>
-            <a href="#" class="fa fa-facebook"></a>
-            <a href="#" class="fa fa-twitter"></a>
-            <a href="#" class="fa fa-instagram"></a>
-          </Social>
-          <FooterEntry>The Humble community has contributed over $182,000,000 to charity since 2010, making an amazing difference to causes all over the world.</FooterEntry>
-        </ColumnBox>
+        <Wrapper>
+          <ColumnBox>
+            <Humble>
+              <img src="https://humblebundle-a.akamaihd.net/static/hashed/4814f84495cd679571cb94896978da3825562075.svg"></img>
+            </Humble>
+            <Referral>
+              <p>Limited time offer—Get $8 Wallet Credit to spend on your next store purchase!</p>
+              <p className='referral-link'>INVITE A FRIEND</p>
+            </Referral>
+            <FooterNav>
+              <FooterAbout>
+                <h2>About</h2>
+                <ul className='about-links'>
+                  <li>Blog</li>
+                  <li>Support</li>
+                  <li>Order Resender</li>
+                  <li>Developer</li>
+                </ul>
+              </FooterAbout>
+              <TrendingGames>
+                <h2>Trending Games</h2>
+                <ul>
+                  <li>Drug Dealer Simulator</li>
+                  <li>420 Simulator</li>
+                  <li>Hacker Man Link</li>
+                  <li>Start Up Dev Ops</li>
+                </ul>
+                <ul>
+                  <li>Hyper Focused Coder</li>
+                  <li>Debugging Sim</li>
+                  <li>ReACTIVE One Sheet</li>
+                  <li>CSS WHAT?</li>
+                </ul>
+              </TrendingGames>
+            </FooterNav>
+          </ColumnBox>
+        </Wrapper>
       </FooterBox>
     )
   }
