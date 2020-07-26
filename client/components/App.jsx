@@ -20,9 +20,7 @@ class App extends React.Component {
       <div id='Title'></div>
         <Container>
           <div id='images'></div>
-          <div id='PriceAndPromotion'>
-            <img src="https://i.gyazo.com/0b6511b0d28aa19dfc80c70ba6a5895d.png"></img>
-          </div>
+          <div id='PriceAndPromotion'></div>
         </Container>
       <div id='carousel'></div>
       <div id="Overview"></div>
