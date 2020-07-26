@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { FaCaretDown, FaGlobe, FaFacebookF, FaTwitter, FaBlog } from 'react-icons/fa';
+import {TiSocialInstagram} from 'react-icons/ti';
+import { IconContext } from 'react-icons';
 
 const FooterBox = styled.div`
   display: block;
@@ -95,6 +98,70 @@ const TrendingGames = styled.div`
     }
   }
 `
+const SocialBox = styled.div`
+  display: block;
+  grid-column-end: 9;
+  grid-column-start: 7;
+  grid-row-end: 7;
+  grid-row-start: 1;
+  text-align: right;
+`
+const Language = styled.div`
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+  .language-svg {
+    display: inline-block;
+    text-align: center;
+    width: 2em;
+    height: 1em;
+  }
+`
+const SocialIconsContainer = styled.div`
+  margin-top: 20px;
+  margin-bottom: 30px;
+`
+const Social = styled.div`
+  display: inline-block;
+  background-color: #7c828d;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  text-align: center;
+  font-size: 18px;
+  height: 32px;
+  width: 32px;
+  line-height: 32px;
+  margin-right: 10px;
+  color: rgb(60,63,73);
+  .social-icons {
+    height: 1.50em;
+  }
+`
+const CharityStatement=styled.p`
+  text-align: right;
+`
+const Legal = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  color: rgb(196,199,207);
+  justify-content: flex-end;
+  margin-top: 25px;
+  text-align: right;
+  .first-legal {
+    display:block;
+    list-style-type: none;
+    li {
+      display: inline-block;
+    }
+    .after ::after {
+      content: "•";
+      padding: 7px;
+    }
+  }
+`
 
 export default class Footer extends React.Component {
   render() {
@@ -122,19 +189,51 @@ export default class Footer extends React.Component {
               <TrendingGames>
                 <h2>Trending Games</h2>
                 <ul>
-                  <li>Drug Dealer Simulator</li>
-                  <li>420 Simulator</li>
-                  <li>Hacker Man Link</li>
-                  <li>Start Up Dev Ops</li>
+                  <li>React Fun</li>
+                  <li>Universal Variable</li>
+                  <li>Pull and Push</li>
+                  <li>Explore Curiosity</li>
                 </ul>
                 <ul>
-                  <li>Hyper Focused Coder</li>
+                  <li>Try Again Simulator</li>
                   <li>Debugging Sim</li>
-                  <li>ReACTIVE One Sheet</li>
-                  <li>CSS WHAT?</li>
+                  <li>21 Days to Deploy</li>
+                  <li>Ask Questions?</li>
                 </ul>
               </TrendingGames>
             </FooterNav>
+            <SocialBox>
+              <Language>
+                <IconContext.Provider value={{className: 'language-svg'}}>
+                  <FaGlobe/>
+                </IconContext.Provider>
+                  Language: English
+                <IconContext.Provider value={{className: 'language-svg'}}>
+                    <FaCaretDown/>
+                </IconContext.Provider>
+              </Language>
+              <SocialIconsContainer>
+                <IconContext.Provider value={{className: 'social-icons'}}>
+                  <Social><FaFacebookF/></Social>
+                  <Social><FaTwitter/></Social>
+                  <Social><TiSocialInstagram/></Social>
+                  <Social><FaBlog/></Social>
+                </IconContext.Provider>
+              </SocialIconsContainer>
+              <CharityStatement>
+                The Humble community has contributed over $183,000,000 to charity since 2010, making an amazing difference to causes all over the world.
+              </CharityStatement>
+              <Legal>
+                <ul className='first-legal'>
+                  <li className='after'>Terms of Service</li>
+                  <li>Privacy Policy</li>
+                </ul>
+                <ul className='first-legal'>
+                  <li className='after'>Cookie Policy</li>
+                  <li>Legal Notices</li>
+                </ul>
+              </Legal>
+            </SocialBox>
           </ColumnBox>
         </Wrapper>
       </FooterBox>
