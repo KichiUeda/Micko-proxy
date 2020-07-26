@@ -48,7 +48,6 @@ const Referral = styled.div`
 const FooterNav = styled.section`
   display: flex;
   color: #c4c7cf;
-  flex-direction: flex;
   grid-column-end: 7;
   grid-column-start: 3;
   grid-row-end: 7;
