@@ -52,6 +52,9 @@ const FooterNav = styled.section`
   grid-column-start: 3;
   grid-row-end: 7;
   grid-row-start: 1;
+  .Nav-title {
+    padding-left: 40px;
+  }
 `
 const FooterAbout = styled.div`
   display:block;
@@ -113,7 +116,15 @@ const Language = styled.div`
     display: inline-block;
     text-align: center;
     width: 2em;
-    height: 1em;
+    height: .8em;
+  }
+  .arrow-container-language {
+    display: inline-block;
+    padding-top: 2px;
+    .arrow-svg {
+      width: 2em;
+      height: 1em;
+    }
   }
 `
 const SocialIconsContainer = styled.div`
@@ -134,8 +145,21 @@ const Social = styled.div`
   line-height: 32px;
   margin-right: 10px;
   color: rgb(60,63,73);
-  .social-icons {
-    height: 1.50em;
+  .facebook {
+    padding-top: 4px;
+    padding-right: 3px;
+    height: 25px;
+  }
+  .twitter {
+    height: 30px;
+  }
+  .instagram {
+    height: 30px;
+    width: 25px;
+  }
+  .blog {
+    height: 30px;
+    width: 20px;
   }
 `
 const CharityStatement=styled.p`
@@ -177,7 +201,7 @@ export default class Footer extends React.Component {
             </Referral>
             <FooterNav>
               <FooterAbout>
-                <h2>About</h2>
+                <h2 className='Nav-title'>About</h2>
                 <ul className='about-links'>
                   <li>Blog</li>
                   <li>Support</li>
@@ -186,7 +210,7 @@ export default class Footer extends React.Component {
                 </ul>
               </FooterAbout>
               <TrendingGames>
-                <h2>Trending Games</h2>
+                <h2 className='Nav-title'>Trending Games</h2>
                 <ul>
                   <li>React Fun</li>
                   <li>Universal Variable</li>
@@ -207,17 +231,25 @@ export default class Footer extends React.Component {
                   <FaGlobe/>
                 </IconContext.Provider>
                   Language: English
-                <IconContext.Provider value={{className: 'language-svg'}}>
-                    <FaCaretDown/>
-                </IconContext.Provider>
+                <div className='arrow-container-language'>
+                  <IconContext.Provider value={{className: 'arrow-svg'}}>
+                      <FaCaretDown/>
+                  </IconContext.Provider>
+                </div>
               </Language>
               <SocialIconsContainer>
-                <IconContext.Provider value={{className: 'social-icons'}}>
-                  <Social><FaFacebookF/></Social>
-                  <Social><FaTwitter/></Social>
-                  <Social><TiSocialInstagram/></Social>
-                  <Social><FaBlog/></Social>
-                </IconContext.Provider>
+                <Social>
+                  <IconContext.Provider value={{className: 'facebook'}}> <FaFacebookF/> </IconContext.Provider>
+                </Social>
+                <Social>
+                  <IconContext.Provider value={{className: 'twitter'}}> <FaTwitter/> </IconContext.Provider>
+                </Social>
+                <Social>
+                  <IconContext.Provider value={{className: 'instagram'}}> <TiSocialInstagram/> </IconContext.Provider>
+                </Social>
+                <Social>
+                  <IconContext.Provider value={{className: 'blog'}}> <FaBlog/> </IconContext.Provider>
+                </Social>
               </SocialIconsContainer>
               <CharityStatement>
                 The Humble community has contributed over $183,000,000 to charity since 2010, making an amazing difference to causes all over the world.

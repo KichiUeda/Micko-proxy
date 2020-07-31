@@ -132,8 +132,8 @@ const NavBottom = styled.div`
   border-top-style: solid;
   border-top-width: 1px;
   border-color: #282b33;
-  margin-left: 28px;
-  margin-right: 28px;
+  padding-left: 28px;
+  padding-right: 28px;
 `
 const NavBottomList = styled.ul`
   color: #d8d8da;
